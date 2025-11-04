@@ -117,3 +117,20 @@ footer {
   font-size: 1.1em;
   color: #00ff99;
 }
+
+.colorful-bg {
+      color: white;                /* cor do texto */
+      padding: 8px 16px;           /* espaço interno */
+      text-decoration: none;       /* remove o sublinhado */
+      border-radius: 6px;          /* cantos arredondados */
+      font-weight: bold;
+      animation: bgColors 3s infinite linear;
+    }
+
+    @keyframes bgColors {
+      0%   { background-color: red; }
+      25%  { background-color: orange; }
+      50%  { background-color: yellow; color: black; }
+      75%  { background-color: green; }
+      100% { background-color: red; }
+    }
