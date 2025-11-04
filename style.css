@@ -26,11 +26,11 @@ nav ul {
 }
 
 nav a {
-  color: white;
   text-decoration: none;
   font-weight: bold;
 }
 
+/* Mantém sublinhado só no hover, se quiser */
 nav a:hover {
   text-decoration: underline;
 }
@@ -118,21 +118,21 @@ footer {
   color: #00ff99;
 }
 
-/* --- LINK DO YOUTUBE COM FUNDO ANIMADO APENAS NO TEXTO --- */
-.colorful-bg {
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: bgColors 3s infinite linear;
-  background-size: 400% 400%;
-  background-image: linear-gradient(270deg, red, orange, yellow, green, blue, purple, red);
+/* --- APENAS O TEXTO PISCANDO COLORIDO (sem borda, sem caixa) --- */
+nav a.colorful-text {
+  padding: 0;              /* sem caixa */
+  border: none;            /* sem borda */
+  border-radius: 0;        /* sem cantos */
+  background: none;        /* sem fundo */
+  animation: textBlink 1s infinite steps(1);
 }
 
-@keyframes bgColors {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Cores piscando no texto */
+@keyframes textBlink {
+  0%   { color: #ff3b3b; }   /* vermelho */
+  20%  { color: #ffa500; }   /* laranja */
+  40%  { color: #ffff00; }   /* amarelo */
+  60%  { color: #00ff00; }   /* verde */
+  80%  { color: #00bfff; }   /* azul */
+  100% { color: #ff3b3b; }   /* volta ao vermelho */
 }
