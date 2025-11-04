@@ -1,128 +1,129 @@
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #121212;
-  color: #f0f0f0;
-}
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
 
-header {
-  background-color: #da0d0dda;
-  padding: 20px;
-  text-align: center;
-}
+    header {
+      background-color: #da0d0dda;
+      padding: 20px;
+      text-align: center;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-nav a:hover {
-  text-decoration: underline;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-.intro {
-  padding: 40px 20px;
-  text-align: center;
-}
+    .intro {
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-.galeria {
-  padding: 20px;
-  text-align: center;
-}
+    .galeria {
+      padding: 20px;
+      text-align: center;
+    }
 
-.galeria h2 {
-  margin-bottom: 20px;
-}
+    .galeria h2 {
+      margin-bottom: 20px;
+    }
 
-.imagens {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+    .imagens {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-.imagens img {
-  width: 300px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ff0000;
-  transition: transform 0.3s ease;
-}
+    .imagens img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ff0000;
+      transition: transform 0.3s ease;
+    }
 
-.imagens img:hover {
-  transform: scale(1.05);
-}
+    .imagens img:hover {
+      transform: scale(1.05);
+    }
 
-footer {
-  background-color: #222;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
-}
+    footer {
+      background-color: #222;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
 
-.interacao {
-  padding: 30px;
-  background-color: #1e1e1e;
-  border-top: 2px solid #ff0000;
-  text-align: center;
-}
+    .interacao {
+      padding: 30px;
+      background-color: #1e1e1e;
+      border-top: 2px solid #ff0000;
+      text-align: center;
+    }
 
-.interacao form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  max-width: 400px;
-  margin: 0 auto;
-}
+    .interacao form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
 
-.interacao input,
-.interacao select {
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  border: none;
-}
+    .interacao input,
+    .interacao select {
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+    }
 
-.interacao button {
-  padding: 10px 20px;
-  background-color: #ff0000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .interacao button {
+      padding: 10px 20px;
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-.interacao button:hover {
-  background-color: #e00000;
-}
+    .interacao button:hover {
+      background-color: #e00000;
+    }
 
-#resposta {
-  margin-top: 20px;
-  font-size: 1.1em;
-  color: #00ff99;
-}
+    #resposta {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #00ff99;
+    }
 
-.colorful-bg {
-      color: white;                /* cor do texto */
-      padding: 8px 16px;           /* espaço interno */
-      text-decoration: none;       /* remove o sublinhado */
-      border-radius: 6px;          /* cantos arredondados */
+    /* --- LINK DO YOUTUBE COM FUNDO ANIMADO --- */
+    .colorful-bg {
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 6px;
       font-weight: bold;
       animation: bgColors 3s infinite linear;
     }
@@ -131,6 +132,6 @@ footer {
       0%   { background-color: red; }
       25%  { background-color: orange; }
       50%  { background-color: yellow; color: black; }
-      75%  { background-color: green; }
+      75%  { background-color: green; color: white; }
       100% { background-color: red; }
     }
