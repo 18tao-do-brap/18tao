@@ -6,13 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Você clicou em uma imagem de brap! 🏁");
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("formInteracao");
+  const formInteracao = document.getElementById("formInteracao");
   const resposta = document.getElementById("resposta");
 
-  form.addEventListener("submit", (e) => {
+  formInteracao.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const nome = document.getElementById("nome").value.trim();
@@ -24,11 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isNaN(idade)) {
       mensagem += "Não entendi sua idade.";
     } else {
-      if (idade >= 18) {
-        mensagem += "Você é maior de idade. ";
-      } else {
-        mensagem += "Você ainda é menor de idade. ";
-      }
+      mensagem += idade >= 18
+        ? "Você é maior de idade. "
+        : "Você ainda é menor de idade. ";
 
       if (moto === "sim") {
         mensagem += "E já tá acelerando nas trilhas, hein? BRAP BRAP! 🏍️🔥";
@@ -41,4 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resposta.textContent = mensagem;
   });
-});
+
+  const formImagem = document.getElementById("formImagem");
+  const galeria = document.getElementById("galeriaImagens");
+
+  formImagem.addEventListener("submit", (e) =>
+
