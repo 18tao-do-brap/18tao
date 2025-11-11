@@ -30,8 +30,18 @@ nav a {
   font-weight: bold;
 }
 
-/* Mantém sublinhado só no hover, se quiser */
+/* Mantém sublinhado só no hover */
 nav a:hover {
+  text-decoration: underline;
+}
+
+/* Links pretos para Início e Galeria */
+.link-preto {
+  color: black;
+}
+
+.link-preto:hover {
+  color: black;
   text-decoration: underline;
 }
 
@@ -120,19 +130,20 @@ footer {
 
 /* --- APENAS O TEXTO PISCANDO COLORIDO (sem borda, sem caixa) --- */
 nav a.colorful-text {
-  padding: 0;              /* sem caixa */
-  border: none;            /* sem borda */
-  border-radius: 0;        /* sem cantos */
-  background: none;        /* sem fundo */
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
   animation: textBlink 1s infinite steps(1);
 }
 
 /* Cores piscando no texto */
 @keyframes textBlink {
-  0%   { color: #ff3b3b; }   /* vermelho */
-  20%  { color: #ffa500; }   /* laranja */
-  40%  { color: #ffff00; }   /* amarelo */
-  60%  { color: #00ff00; }   /* verde */
-  80%  { color: #00bfff; }   /* azul */
-  100% { color: #ff3b3b; }   /* volta ao vermelho */
+  0%   { color: #ff3b3b; }
+  20%  { color: #ffa500; }
+  40%  { color: #ffff00; }
+  60%  { color: #00ff00; }
+  80%  { color: #00bfff; }
+  100% { color: #ff3b3b; }
 }
+
