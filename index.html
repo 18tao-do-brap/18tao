@@ -35,13 +35,41 @@
     <section class="galeria">
       <h2>Galeria do 18TÃO</h2>
       <div class="imagens" id="galeriaImagens">
-        <!-- Adicione suas imagens aqui -->
         <img src="IMG_2744.jpeg" alt="motos" />
         <img src="IMG_3346.jpeg" alt="arte motocross" />
         <img src="2BF03B60-91F3-451B-801C-466A6C44DF36.jpeg" alt="moto" />
-        <!-- Exemplo de nova imagem -->
-        <img src="nova-imagem.jpeg" alt="nova imagem adicionada" />
       </div>
+
+      <div class="adicionar-imagem">
+        <h3>Adicionar nova imagem</h3>
+        <form id="formImagem">
+          <input type="text" id="urlImagem" placeholder="URL da imagem" required />
+          <input type="text" id="altImagem" placeholder="Descrição da imagem" required />
+          <button type="submit">Adicionar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="interacao">
+      <h2>Fala aí, piloto!</h2>
+      <form id="formInteracao">
+        <label for="nome">Qual seu nome?</label>
+        <input type="text" id="nome" required />
+
+        <label for="idade">Quantos anos você tem?</label>
+        <input type="number" id="idade" required />
+
+        <label for="moto">Você anda de moto?</label>
+        <select id="moto" required>
+          <option value="">Selecione</option>
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div id="resposta"></div>
     </section>
   </main>
 
