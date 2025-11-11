@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".imagens img");
+  // Interação com imagens da galeria
+  const imagensGaleria = document.querySelectorAll(".imagens img");
 
-  images.forEach((img) => {
+  imagensGaleria.forEach((img) => {
     img.addEventListener("click", () => {
       alert("Você clicou em uma imagem de brap! 🏁");
     });
   });
 
+  // Interação com formulário de usuário
   const formInteracao = document.getElementById("formInteracao");
   const resposta = document.getElementById("resposta");
 
@@ -37,9 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resposta.textContent = mensagem;
   });
+});
 
-  const formImagem = document.getElementById("formImagem");
-  const galeria = document.getElementById("galeriaImagens");
-
-  formImagem.addEventListener("submit", (e) =>
 
