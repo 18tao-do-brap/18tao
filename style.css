@@ -65,6 +65,7 @@ nav a:hover {
   border-radius: 10px;
   box-shadow: 0 0 10px #ff0000;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .imagens img:hover {
@@ -90,8 +91,13 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  max-width: 500px;
+  max-width: 520px;
   margin: 0 auto;
+}
+
+.interacao label {
+  align-self: flex-start;
+  font-weight: bold;
 }
 
 .interacao input,
@@ -104,9 +110,9 @@ footer {
   color: #f0f0f0;
 }
 
-.interacao select[multiple] {
-  height: 160px; /* deixa visível várias opções */
-  overflow-y: scroll;
+#moto {
+  height: 180px;
+  overflow-y: auto;
 }
 
 .interacao button {
@@ -126,21 +132,8 @@ footer {
 #resposta {
   margin-top: 20px;
   font-size: 1.1em;
-  color: #00ff99;
-}
+  color: #
 
-nav a.colorful-text {
-  animation: textBlink 1s infinite steps(1);
-}
-
-@keyframes textBlink {
-  0%   { color: #ff3b3b; }
-  20%  { color: #ffa500; }
-  40%  { color: #ffff00; }
-  60%  { color: #00ff00; }
-  80%  { color: #00bfff; }
-  100% { color: #ff3b3b; }
-}
 
 
 
