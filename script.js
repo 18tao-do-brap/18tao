@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const images = document.querySelectorAll(".imagens img");
-
-  images.forEach((img) => {
-    img.addEventListener("click", () => {
-      alert("Você clicou em uma imagem de brap! 🏁");
-    });
-  });
-
   const formInteracao = document.getElementById("formInteracao");
   const resposta = document.getElementById("resposta");
 
@@ -15,33 +7,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nome = document.getElementById("nome").value.trim();
     const idade = parseInt(document.getElementById("idade").value);
-    const moto = document.getElementById("moto").value;
+    const andaMoto = document.getElementById("andaMoto").value;
+    const motosSelecionadas = Array.from(document.getElementById("moto").selectedOptions).map(opt => opt.text);
 
     let mensagem = `Salve, ${nome}! `;
 
-    if (isNaN(idade)) {
-      mensagem += "Não entendi sua idade.";
-    } else {
+    if (!isNaN(idade)) {
       mensagem += idade >= 18
-        ? "Você é maior de idade. "
-        : "Você ainda é menor de idade. ";
+        ? "Você já tá na maioridade, pronto pra acelerar forte! "
+        : "Ainda menor de idade, mas já pode sentir o gosto da trilha! ";
+    }
 
-      if (moto === "sim") {
-        mensagem += "E já tá acelerando nas trilhas, hein? BRAP BRAP! 🏍️🔥";
-      } else if (moto === "nao") {
-        mensagem += "Mas ainda dá tempo de subir numa moto e sentir o BRAP! 😉";
+    if (andaMoto === "sim") {
+      mensagem += "Boa! Você já anda de moto. ";
+      if (motosSelecionadas.length > 0) {
+        mensagem += `Suas máquinas escolhidas: ${motosSelecionadas.join(", ")}. Que combo insano! 🏍️🔥`;
       } else {
-        mensagem += "Me conta se você anda de moto!";
+        mensagem += "Me conta qual moto você pilota!";
       }
+    } else if (andaMoto === "nao") {
+      mensagem += "Ainda não anda de moto, mas nunca é tarde pra sentir o BRAP! 😉";
+    } else {
+      mensagem += "Responde aí se você anda de moto!";
     }
 
     resposta.textContent = mensagem;
   });
-
-  const formImagem = document.getElementById("formImagem");
-  const galeria = document.getElementById("galeriaImagens");
-
-  formImagem.addEventListener("submit", (e) =>
+});
 
 
 
