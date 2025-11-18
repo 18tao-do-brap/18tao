@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const andaMoto = document.getElementById("andaMoto");
+  const motoContainer = document.getElementById("motoContainer");
+  const formInteracao = document.getElementById("formInteracao");
+  const resposta = document.getElementById("resposta");
+
+  // Mostrar/esconder campo das motos conforme escolha
+  andaMoto.addEventListener("change", () => {
+    if (andaMoto.value === "sim") {
+      motoContainer.style.display = "block";
+    } else {
+      motoContainer.style.display = "none";
+    }
+  });
+
   // Efeito nos cliques das imagens
   document.querySelectorAll(".imagens img").forEach((img) => {
     img.addEventListener("click", () => {
@@ -6,24 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Formulário de interação
-  const formInteracao = document.getElementById("formInteracao");
-  const resposta = document.getElementById("resposta");
-
+  // Lógica do formulário
   formInteracao.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const nome = document.getElementById("nome").value.trim();
     const idade = parseInt(document.getElementById("idade").value);
-    const andaMoto = document.getElementById("andaMoto").value;
+    const andaMotoVal = andaMoto.value;
     const motosSelecionadas = Array.from(
       document.getElementById("moto").selectedOptions
     ).map(opt => opt.text);
-
-    if (!nome) {
-      resposta.textContent = "Me diz seu nome pra eu te dar o salve!";
-      return;
-    }
 
     let mensagem = `Salve, ${nome}! `;
 
@@ -35,17 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
       mensagem += "Não entendi sua idade. ";
     }
 
-    if (andaMoto === "sim") {
+    if (andaMotoVal === "sim") {
       mensagem += "Boa! Você já anda de moto. ";
       if (motosSelecionadas.length > 0) {
         mensagem += `Máquinas escolhidas: ${motosSelecionadas.join(", ")}. Que combo insano! 🏍️🔥`;
       } else {
-        mensagem += "Me conta qual moto você pilota no campo acima!";
+        mensagem += "Me conta qual moto você pilota!";
       }
-    } else if (andaMoto === "nao") {
+    } else if (andaMotoVal === "nao") {
       mensagem += "Ainda não anda de moto, mas nunca é tarde pra sentir o BRAP! 😉";
-    } else {
-      mensagem += "Seleciona aí se você anda de moto.";
     }
 
     resposta.textContent = mensagem;
