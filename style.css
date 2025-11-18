@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background-color: #da0d0dda;
+  background-color: #da0d0d;
   padding: 20px;
   text-align: center;
 }
@@ -36,11 +36,6 @@ nav a:hover {
 
 .link-preto {
   color: black;
-}
-
-.link-preto:hover {
-  color: black;
-  text-decoration: underline;
 }
 
 .intro {
@@ -76,39 +71,6 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-.adicionar-imagem {
-  margin-top: 30px;
-}
-
-.adicionar-imagem form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.adicionar-imagem input {
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  border: none;
-}
-
-.adicionar-imagem button {
-  padding: 10px 20px;
-  background-color: #ff0000;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.adicionar-imagem button:hover {
-  background-color: #e00000;
-}
-
 footer {
   background-color: #222;
   text-align: center;
@@ -128,7 +90,7 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -138,6 +100,13 @@ footer {
   width: 100%;
   border-radius: 5px;
   border: none;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+.interacao select[multiple] {
+  height: 160px; /* deixa visível várias opções */
+  overflow-y: scroll;
 }
 
 .interacao button {
@@ -147,6 +116,7 @@ footer {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .interacao button:hover {
@@ -160,10 +130,6 @@ footer {
 }
 
 nav a.colorful-text {
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: none;
   animation: textBlink 1s infinite steps(1);
 }
 
@@ -175,6 +141,7 @@ nav a.colorful-text {
   80%  { color: #00bfff; }
   100% { color: #ff3b3b; }
 }
+
 
 
 
