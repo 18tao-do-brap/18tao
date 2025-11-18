@@ -39,15 +39,6 @@
         <img src="IMG_3346.jpeg" alt="arte motocross" />
         <img src="2BF03B60-91F3-451B-801C-466A6C44DF36.jpeg" alt="moto" />
       </div>
-
-      <div class="adicionar-imagem">
-        <h3>Adicione sua vivencia das trilhas!</h3>
-        <form id="formImagem">
-          <input type="text" id="urlImagem" placeholder="URL da imagem" required />
-          <input type="text" id="altImagem" placeholder="Descrição da imagem" required />
-          <button type="submit">Adicionar</button>
-        </form>
-      </div>
     </section>
 
     <section class="interacao">
@@ -59,11 +50,67 @@
         <label for="idade">Quantos anos você tem?</label>
         <input type="number" id="idade" required />
 
-        <label for="moto">Você anda de moto?</label>
-        <select id="moto" required>
+        <label for="andaMoto">Você anda de moto?</label>
+        <select id="andaMoto" required>
           <option value="">Selecione</option>
           <option value="sim">Sim</option>
           <option value="nao">Não</option>
+        </select>
+
+        <label for="moto">Qual sua moto?</label>
+        <select id="moto" multiple size="8">
+          <!-- Lista de 50 motos -->
+          <option>Honda CRF 250R</option>
+          <option>Honda CRF 450R</option>
+          <option>Honda CRF 150R</option>
+          <option>Honda CRF 230F</option>
+          <option>Honda CRF 250F</option>
+          <option>Honda CRF 450RX</option>
+          <option>Honda CRF 300L</option>
+          <option>Honda XR 250 Tornado</option>
+          <option>Honda XR 400R</option>
+          <option>Honda XR 650R</option>
+          <option>Yamaha YZ125</option>
+          <option>Yamaha YZ250</option>
+          <option>Yamaha YZ450F</option>
+          <option>Yamaha WR250F</option>
+          <option>Yamaha WR450F</option>
+          <option>Yamaha YZ250X</option>
+          <option>Yamaha YZ125X</option>
+          <option>KTM 125 SX</option>
+          <option>KTM 250 SX</option>
+          <option>KTM 450 SX-F</option>
+          <option>KTM 250 EXC</option>
+          <option>KTM 300 EXC</option>
+          <option>KTM 350 EXC-F</option>
+          <option>KTM 450 EXC-F</option>
+          <option>KTM 500 EXC-F</option>
+          <option>Kawasaki KX125</option>
+          <option>Kawasaki KX250</option>
+          <option>Kawasaki KX450</option>
+          <option>Kawasaki KLX250</option>
+          <option>Kawasaki KLX300</option>
+          <option>Kawasaki KLX450R</option>
+          <option>Suzuki RM125</option>
+          <option>Suzuki RM250</option>
+          <option>Suzuki RM-Z250</option>
+          <option>Suzuki RM-Z450</option>
+          <option>Husqvarna TC125</option>
+          <option>Husqvarna TC250</option>
+          <option>Husqvarna FC250</option>
+          <option>Husqvarna FC450</option>
+          <option>Husqvarna TE250</option>
+          <option>Husqvarna TE300</option>
+          <option>Husqvarna FE350</option>
+          <option>Husqvarna FE450</option>
+          <option>GasGas MC125</option>
+          <option>GasGas MC250</option>
+          <option>GasGas MC450F</option>
+          <option>GasGas EC250</option>
+          <option>GasGas EC300</option>
+          <option>Beta RR250</option>
+          <option>Beta RR300</option>
+          <option>Beta RR450</option>
         </select>
 
         <button type="submit">Enviar</button>
@@ -80,7 +127,6 @@
   <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
