@@ -73,54 +73,6 @@ nav a:hover {
 }
 
 footer {
-  background-color: #222;
-  text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
-}
-
-.interacao {
-  padding: 30px;
-  background-color: #1e1e1e;
-  border-top: 2px solid #ff0000;
-  text-align: center;
-}
-
-.interacao form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-.interacao label {
-  align-self: flex-start;
-  font-weight: bold;
-}
-
-.interacao input,
-.interacao select {
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  border: none;
-  background-color: #2a2a2a;
-  color: #f0f0f0;
-}
-
-#moto {
-  height: 180px;
-  overflow-y: auto;
-}
-
-.interacao button {
-  padding: 10px 20px;
-  background-color: #ff0000;
-  color: white;
-  border
-
-
+  background
 
 
