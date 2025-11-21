@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (andaMotoVal === "sim") {
       mensagem += "Boa! Você já anda de moto. ";
       if (motosSelecionadas.length > 0) {
-        mensagem += `Máquinas escolhidas: ${motosSelecionadas.join(", ")}. Que combo insano! 🏍️🔥`;
+        mensagem += `Que maquina a sua em! ${motosSelecionadas.join(", ")}. Que combo insano! 🏍️🔥`;
       } else {
         mensagem += "Me conta qual moto você pilota!";
       }
