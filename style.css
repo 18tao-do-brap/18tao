@@ -1,10 +1,11 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #121212;
+  background-color: #121212; /* mantém fundo escuro */
   color: #f0f0f0;
 }
 
+/* Cabeçalho */
 header {
   background-color: #da0d0d;
   padding: 20px;
@@ -16,6 +17,7 @@ header h1 {
   font-size: 2.5em;
 }
 
+/* Navegação */
 nav ul {
   list-style: none;
   padding: 0;
@@ -38,11 +40,13 @@ nav a:hover {
   color: black;
 }
 
+/* Intro */
 .intro {
   padding: 40px 20px;
   text-align: center;
 }
 
+/* Galeria */
 .galeria {
   padding: 20px;
   text-align: center;
@@ -72,21 +76,63 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-footer {
-  background
-body {
-  margin: 0;
-  height: 100vh;
-  display: grid;
-  place-items: center; /* centraliza horizontal e vertical */
-  background-color: #f5f5f5;
+/* Seção de interação */
+.interacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* ocupa quase toda a tela */
 }
 
-.interacao {
+.interacao form {
+  width: 450px; /* aumenta largura */
+  padding: 30px;
   background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: #000; /* texto preto dentro do formulário */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
 }
+
+/* Labels */
+.interacao label {
+  font-size: 1.2rem;
+  margin-top: 12px;
+}
+
+/* Inputs, selects e botão */
+.interacao input,
+.interacao select,
+.interacao button {
+  font-size: 1.1rem;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Botão */
+.interacao button {
+  background-color: #da0d0d;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.interacao button:hover {
+  background-color: #b50a0a;
+}
+
+/* Rodapé */
+footer {
+  background-color: #da0d0d;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+
 
 
