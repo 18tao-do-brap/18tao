@@ -74,5 +74,19 @@ nav a:hover {
 
 footer {
   background
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center; /* centraliza horizontal e vertical */
+  background-color: #f5f5f5;
+}
+
+.interacao {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 
 
