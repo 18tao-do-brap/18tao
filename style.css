@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #121212; /* mantém fundo escuro */
+  background-color: #121212;
   color: #f0f0f0;
 }
 
@@ -76,38 +76,55 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* Seção de interação */
+/* ========================= */
+/* Seção de interação (AJUSTADA) */
+/* ========================= */
+
 .interacao {
   display: flex;
-  justify-content: center;
+  flex-direction: column;   /* 🔥 evita quebrar layout */
   align-items: center;
-  min-height: 40vh; /* ocupa quase toda a tela */
+  padding: 40px 20px;
 }
 
+.interacao h2 {
+  margin-bottom: 20px;
+}
+
+/* Formulário centralizado */
 .interacao form {
-  width: 450px; /* aumenta largura */
+  width: 100%;
+  max-width: 450px;        /* 🔥 centraliza sem estourar */
   padding: 30px;
   background: #fff;
-  color: #000; /* texto preto dentro do formulário */
+  color: #000;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   display: flex;
   flex-direction: column;
 }
 
+/* Fieldset (corrige bug de ficar tudo em linha) */
+.interacao fieldset {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
 /* Labels */
 .interacao label {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-top: 12px;
+  display: block;          /* 🔥 força ficar embaixo */
 }
 
 /* Inputs, selects e botão */
 .interacao input,
 .interacao select,
 .interacao button {
-  font-size: 1.1rem;
-  padding: 12px;
-  margin-top: 8px;
+  font-size: 1rem;
+  padding: 10px;
+  margin-top: 6px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -119,10 +136,19 @@ nav a:hover {
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-top: 15px;
 }
 
 .interacao button:hover {
   background-color: #b50a0a;
+}
+
+/* Resposta embaixo do formulário */
+#resposta {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* Rodapé */
@@ -132,7 +158,6 @@ footer {
   padding: 15px;
   margin-top: 40px;
 }
-
 
 
 
