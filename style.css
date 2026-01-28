@@ -305,4 +305,19 @@ footer {
   margin-top: 20px;
   font-weight: bold;
   text-align: center;
+}/* ===============================
+   SHAKE DE IMPACTO 🏍️🔥
+=============================== */
+
+@keyframes shakeTela {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-8px); }
+  40%  { transform: translateX(8px); }
+  60%  { transform: translateX(-6px); }
+  80%  { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shakeTela 0.4s;
 }
