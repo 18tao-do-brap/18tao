@@ -232,3 +232,77 @@ footer {
   margin-top: 40px;
   font-size: 0.95rem;
 }
+/* ===============================
+   FORMULÁRIO MAIS AGRESSIVO 🏍️🔥
+=============================== */
+
+.interacao form {
+  background: #0b0b0b;
+  border: 2px solid #ff0000;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 
+    0 0 25px rgba(255, 0, 0, 0.7),
+    inset 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+/* título */
+.interacao h2 {
+  color: #ff0000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* labels */
+.interacao label {
+  color: #ff4d4d;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* inputs e selects */
+.interacao input,
+.interacao select {
+  background: #000;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 12px;
+  transition: 0.3s;
+}
+
+/* foco */
+.interacao input:focus,
+.interacao select:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+  outline: none;
+}
+
+/* botão */
+.interacao button {
+  background: linear-gradient(135deg, #ff0000, #8b0000);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  transition: 0.3s;
+}
+
+.interacao button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255, 0, 0, 1);
+}
+
+/* resposta */
+#resposta {
+  color: #ff4d4d;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}
