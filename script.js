@@ -18,40 +18,55 @@ document.addEventListener("DOMContentLoaded", () => {
      SOM CRF 250R — BRAP BRAP
   =============================== */
   function tocarBrapCRF250R() {
-    desbloquearAudio();
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
 
-    function brap(delay = 0) {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
+  if (audioCtx.state === "suspended") {
+    audioCtx.resume();
+  }
 
-      osc.type = "sawtooth";
-      osc.frequency.setValueAtTime(150, audioCtx.currentTime + delay);
-      osc.frequency.exponentialRampToValueAtTime(
-        600,
-        audioCtx.currentTime + delay + 0.2
-      );
+  function brap(delay = 0) {
+    // ===== NOISE (explosão)
+    const bufferSize = audioCtx.sampleRate * 0.15;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
 
-      gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + delay);
-      gain.gain.exponentialRampToValueAtTime(
-        0.6,
-        audioCtx.currentTime + delay + 0.05
-      );
-      gain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        audioCtx.currentTime + delay + 0.3
-      );
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start(audioCtx.currentTime + delay);
-      osc.stop(audioCtx.currentTime + delay + 0.32);
+    for (let i = 0; i < bufferSize; i++) {
+      data[i] = Math.random() * 2 - 1;
     }
 
-    // BRAP BRAP duplo
-    brap(0);
-    brap(0.35);
+    const noise = audioCtx.createBufferSource();
+    noise.buffer = buffer;
+
+    // ===== FILTRO (grave sujo)
+    const filter = audioCtx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.setValueAtTime(900, audioCtx.currentTime + delay);
+
+    // ===== GAIN (pancada)
+    const gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + delay);
+    gain.gain.exponentialRampToValueAtTime(
+      1.0,
+      audioCtx.currentTime + delay + 0.02
+    );
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      audioCtx.currentTime + delay + 0.18
+    );
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    noise.start(audioCtx.currentTime + delay);
+    noise.stop(audioCtx.currentTime + delay + 0.2);
   }
+
+  // BRAP BRAP (duplo)
+  brap(0);
+  brap(0.25);
+}
 
   /* ===============================
      NAVEGAÇÃO
