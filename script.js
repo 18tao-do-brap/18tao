@@ -1,32 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===============================
+     NAVEGAÇÃO INÍCIO / GALERIA
+  =============================== */
+  const btnInicio = document.getElementById("btnInicio");
+  const btnGaleria = document.getElementById("btnGaleria");
+
+  const secaoInicio = document.getElementById("inicio");
+  const secaoGaleria = document.getElementById("galeria");
+
+  btnInicio.addEventListener("click", (e) => {
+    e.preventDefault();
+    secaoInicio.style.display = "block";
+    secaoGaleria.style.display = "none";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  btnGaleria.addEventListener("click", (e) => {
+    e.preventDefault();
+    secaoInicio.style.display = "none";
+    secaoGaleria.style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* ===============================
+     FORMULÁRIO
+  =============================== */
   const andaMoto = document.getElementById("andaMoto");
   const motoContainer = document.getElementById("motoContainer");
   const formInteracao = document.getElementById("formInteracao");
   const resposta = document.getElementById("resposta");
 
-  // Mostrar/esconder campo das motos conforme escolha
   andaMoto.addEventListener("change", () => {
-    if (andaMoto.value === "sim") {
-      motoContainer.style.display = "block";
-    } else {
-      motoContainer.style.display = "none";
-    }
+    motoContainer.style.display =
+      andaMoto.value === "sim" ? "block" : "none";
   });
 
-  // Efeito nos cliques das imagens
-  document.querySelectorAll(".imagens img").forEach((img) => {
-    img.addEventListener("click", () => {
-      alert("Você clicou em uma imagem de brap! 🏁");
-    });
-  });
-
-  // Lógica do formulário
   formInteracao.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const nome = document.getElementById("nome").value.trim();
     const idade = parseInt(document.getElementById("idade").value);
     const andaMotoVal = andaMoto.value;
+
     const motosSelecionadas = Array.from(
       document.getElementById("moto").selectedOptions
     ).map(opt => opt.text);
@@ -36,22 +52,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isNaN(idade)) {
       mensagem += idade >= 18
         ? "Maior de idade, pronto pra acelerar forte! "
-        : "Menor de idade, mas já pode sentir o gosto da trilha! ";
-    } else {
-      mensagem += "Não entendi sua idade. ";
+        : "Menor de idade, mas já tem espírito de piloto! ";
     }
 
     if (andaMotoVal === "sim") {
       mensagem += "Boa! Você já anda de moto. ";
       if (motosSelecionadas.length > 0) {
-        mensagem += `Que maquina a sua em! ${motosSelecionadas.join(", ")}. Que combo insano! 🏍️🔥`;
+        mensagem += `Máquina insana: ${motosSelecionadas.join(", ")} 🏍️🔥`;
       } else {
-        mensagem += "Me conta qual moto você pilota!";
+        mensagem += "Depois me conta qual moto você pilota!";
       }
-    } else if (andaMotoVal === "nao") {
-      mensagem += "Ainda não anda de moto, mas nunca é tarde pra sentir o BRAP! 😉";
+    } else {
+      mensagem += "Ainda não anda de moto, mas o BRAP chama 😎";
     }
 
     resposta.textContent = mensagem;
   });
+
+  /* ===============================
+     CLIQUE NAS IMAGENS DA GALERIA
+  =============================== */
+  document.querySelectorAll(".grid-galeria img").forEach(img => {
+    img.addEventListener("click", () => {
+      alert("BRAP! 🏁🔥 Foto insana!");
+    });
+  });
+
 });
