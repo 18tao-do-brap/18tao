@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Mensagem pro usuário
     const nome = document.getElementById("nome").value.trim();
-    resposta.textContent = `Salve, ${nome}! O BRAP respondeu 😈🏍️`;
+    resposta.textContent = `Salve, ${nome}! o braap te chama 😈🏍️`;
   });
 
   /* ===============================
