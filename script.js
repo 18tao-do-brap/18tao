@@ -1,72 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ===============================
-     AUDIO CONTEXT (GLOBAL)
+     SOM REAL DE MOTOCROSS – 4 TEMPOS
   =============================== */
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioCtx = new AudioContext();
+  const somBrap = new Audio("motocross1.mp3");
+  somBrap.volume = 1.0;
 
-  function desbloquearAudio() {
-    if (audioCtx.state === "suspended") {
-      audioCtx.resume();
-    }
-  }
-
-  document.body.addEventListener("click", desbloquearAudio, { once: true });
-
-  /* ===============================
-     SOM CRF 250R — BRAP BRAP
-  =============================== */
   function tocarBrapCRF250R() {
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioCtx = new AudioContext();
+    // reinicia o áudio do começo
+    somBrap.currentTime = 0;
+    somBrap.play();
 
-  if (audioCtx.state === "suspended") {
-    audioCtx.resume();
+    // BRAP BRAP duplo
+    setTimeout(() => {
+      somBrap.currentTime = 0;
+      somBrap.play();
+    }, 250);
   }
-
-  function brap(delay = 0) {
-    // ===== NOISE (explosão)
-    const bufferSize = audioCtx.sampleRate * 0.15;
-    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-    const data = buffer.getChannelData(0);
-
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] = Math.random() * 2 - 1;
-    }
-
-    const noise = audioCtx.createBufferSource();
-    noise.buffer = buffer;
-
-    // ===== FILTRO (grave sujo)
-    const filter = audioCtx.createBiquadFilter();
-    filter.type = "lowpass";
-    filter.frequency.setValueAtTime(900, audioCtx.currentTime + delay);
-
-    // ===== GAIN (pancada)
-    const gain = audioCtx.createGain();
-    gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + delay);
-    gain.gain.exponentialRampToValueAtTime(
-      1.0,
-      audioCtx.currentTime + delay + 0.02
-    );
-    gain.gain.exponentialRampToValueAtTime(
-      0.0001,
-      audioCtx.currentTime + delay + 0.18
-    );
-
-    noise.connect(filter);
-    filter.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    noise.start(audioCtx.currentTime + delay);
-    noise.stop(audioCtx.currentTime + delay + 0.2);
-  }
-
-  // BRAP BRAP (duplo)
-  brap(0);
-  brap(0.25);
-}
 
   /* ===============================
      NAVEGAÇÃO
@@ -104,17 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
   formInteracao.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    // 🔊 Toca o BRAP real
     tocarBrapCRF250R();
 
+    // 📳 Vibração no celular
     if (navigator.vibrate) {
       navigator.vibrate([120, 60, 120]);
     }
 
+    // 📺 Tremida da tela
     document.body.classList.add("shake");
     setTimeout(() => {
       document.body.classList.remove("shake");
     }, 400);
 
+    // Mensagem pro usuário
     const nome = document.getElementById("nome").value.trim();
     resposta.textContent = `Salve, ${nome}! O BRAP respondeu 😈🏍️`;
   });
