@@ -369,3 +369,36 @@ header {
   border-bottom: 2px solid #8b0000;
   box-shadow: none;
 }
+header h1 {
+  font-size: 2.2rem;        /* 🔥 bem menor */
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f2f2f2;
+  text-shadow: 1px 1px 0 #000;
+}
+nav a {
+  color: #cfcfcf;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #ff2a2a;
+}
+.intro h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #e60000;
+  text-shadow: none;       /* ❌ remove glow */
+  margin-bottom: 15px;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  color: #d0d0d0;
+  line-height: 1.6;
+}
