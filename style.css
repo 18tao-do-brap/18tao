@@ -10,6 +10,7 @@ body {
   font-family: 'Teko', sans-serif;
   background-color: #121212;
   color: #eaeaea;
+  overflow-x: hidden;
 }
 
 /* ===============================
@@ -83,7 +84,23 @@ nav a:hover {
 }
 
 /* ===============================
-   INTERAÇÃO / FORMULÁRIO
+   LOGO
+=============================== */
+.logo-area {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 60px;
+}
+
+.logo-area img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 14px rgba(255, 0, 0, 0.6));
+}
+
+/* ===============================
+   INTERAÇÃO / FORM
 =============================== */
 .interacao {
   display: flex;
@@ -109,7 +126,6 @@ nav a:hover {
   border: 1px solid #8b0000;
 }
 
-/* labels */
 .interacao label {
   display: block;
   margin-top: 14px;
@@ -117,7 +133,6 @@ nav a:hover {
   font-weight: 600;
 }
 
-/* inputs */
 .interacao input,
 .interacao select {
   width: 100%;
@@ -136,7 +151,6 @@ nav a:hover {
   outline: none;
 }
 
-/* botão */
 .interacao button {
   margin-top: 22px;
   width: 100%;
@@ -152,10 +166,9 @@ nav a:hover {
 }
 
 .interacao button:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.15);
 }
 
-/* resposta */
 #resposta {
   margin-top: 18px;
   font-weight: bold;
@@ -176,11 +189,55 @@ nav a:hover {
 .grid-galeria img {
   width: 100%;
   border-radius: 14px;
+  border: 2px solid darkred;
+  animation: glowPulse 2.4s infinite ease-in-out;
   transition: transform 0.3s ease;
 }
 
 .grid-galeria img:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
+}
+
+.grid-galeria img:nth-child(odd) {
+  animation-delay: 1.2s;
+}
+
+/* ===============================
+   GLOW PULSANTE (INSANO)
+=============================== */
+@keyframes glowPulse {
+  0% {
+    box-shadow:
+      0 0 6px darkred,
+      0 0 12px red;
+  }
+  50% {
+    box-shadow:
+      0 0 25px red,
+      0 0 50px crimson,
+      0 0 80px darkred;
+  }
+  100% {
+    box-shadow:
+      0 0 6px darkred,
+      0 0 12px red;
+  }
+}
+
+/* ===============================
+   TREMIDA BRAP (FORM)
+=============================== */
+.shake {
+  animation: shakeScreen 0.4s;
+}
+
+@keyframes shakeScreen {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-10px, 5px); }
+  40%  { transform: translate(10px, -5px); }
+  60%  { transform: translate(-8px, 4px); }
+  80%  { transform: translate(8px, -4px); }
+  100% { transform: translate(0); }
 }
 
 /* ===============================
@@ -192,44 +249,4 @@ footer {
   padding: 16px;
   font-size: 0.9rem;
   border-top: 1px solid #8b0000;
-}
-/* ===============================
-   LOGO ENTRE INTRO E FORM
-=============================== */
-
-.logo-area {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0 60px;
-}
-
-.logo-area img {
-  max-width: 200px;       /* tamanho ideal */
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
-}
-.galeria img {
-  border-radius: 12px;
-  border: 2px solid darkred;
-  animation: glowPulse 2s infinite ease-in-out;
-}
-
-@keyframes glowPulse {
-  0% {
-    box-shadow: 
-      0 0 5px darkred,
-      0 0 10px red;
-  }
-  50% {
-    box-shadow: 
-      0 0 20px red,
-      0 0 40px crimson,
-      0 0 60px darkred;
-  }
-  100% {
-    box-shadow: 
-      0 0 5px darkred,
-      0 0 10px red;
-  }
 }
