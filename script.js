@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      SOM REAL DE MOTOCROSS – 4 TEMPOS
   =============================== */
-  const somBrap = new Audio("motocross1.mp3");
+  const somBrap = new Audio("motocross1");
   somBrap.volume = 1.0;
 
   function tocarBrapCRF250R() {
