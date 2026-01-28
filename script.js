@@ -1,11 +1,63 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ===============================
-     NAVEGAÇÃO INÍCIO / GALERIA
+     AUDIO CONTEXT (GLOBAL)
+  =============================== */
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
+
+  function desbloquearAudio() {
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
+  }
+
+  document.body.addEventListener("click", desbloquearAudio, { once: true });
+
+  /* ===============================
+     SOM CRF 250R — BRAP BRAP
+  =============================== */
+  function tocarBrapCRF250R() {
+    desbloquearAudio();
+
+    function brap(delay = 0) {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = "sawtooth";
+      osc.frequency.setValueAtTime(150, audioCtx.currentTime + delay);
+      osc.frequency.exponentialRampToValueAtTime(
+        600,
+        audioCtx.currentTime + delay + 0.2
+      );
+
+      gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + delay);
+      gain.gain.exponentialRampToValueAtTime(
+        0.6,
+        audioCtx.currentTime + delay + 0.05
+      );
+      gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        audioCtx.currentTime + delay + 0.3
+      );
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(audioCtx.currentTime + delay);
+      osc.stop(audioCtx.currentTime + delay + 0.32);
+    }
+
+    // BRAP BRAP duplo
+    brap(0);
+    brap(0.35);
+  }
+
+  /* ===============================
+     NAVEGAÇÃO
   =============================== */
   const btnInicio = document.getElementById("btnInicio");
   const btnGaleria = document.getElementById("btnGaleria");
-
   const secaoInicio = document.getElementById("inicio");
   const secaoGaleria = document.getElementById("galeria");
 
@@ -13,14 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     secaoInicio.style.display = "block";
     secaoGaleria.style.display = "none";
-    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   btnGaleria.addEventListener("click", (e) => {
     e.preventDefault();
     secaoInicio.style.display = "none";
     secaoGaleria.style.display = "block";
-    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   /* ===============================
@@ -36,145 +86,31 @@ document.addEventListener("DOMContentLoaded", () => {
       andaMoto.value === "sim" ? "block" : "none";
   });
 
-  /* ===============================
-     SOM CRF 250R — BRAP BRAP
-  =============================== */
-  function tocarBrapCRF250R() {
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-    function brap(delay = 0) {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = "sawtooth";
-      osc.frequency.setValueAtTime(140, audioCtx.currentTime + delay);
-      osc.frequency.exponentialRampToValueAtTime(
-        520,
-        audioCtx.currentTime + delay + 0.18
-      );
-
-      gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + delay);
-      gain.gain.exponentialRampToValueAtTime(
-        0.55,
-        audioCtx.currentTime + delay + 0.04
-      );
-      gain.gain.exponentialRampToValueAtTime(
-        0.0001,
-        audioCtx.currentTime + delay + 0.25
-      );
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start(audioCtx.currentTime + delay);
-      osc.stop(audioCtx.currentTime + delay + 0.26);
-    }
-
-    // BRAP BRAP duplo
-    brap(0);
-    brap(0.32);
-  }
-
-  /* ===============================
-     SUBMIT DO FORMULÁRIO
-  =============================== */
   formInteracao.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // 🔊 Som CRF 250R
     tocarBrapCRF250R();
 
-    // 📳 Vibração no celular
     if (navigator.vibrate) {
       navigator.vibrate([120, 60, 120]);
     }
 
-    // 📺 Tremida BRAP
     document.body.classList.add("shake");
     setTimeout(() => {
       document.body.classList.remove("shake");
     }, 400);
 
-    // ===== Mensagem =====
     const nome = document.getElementById("nome").value.trim();
-    const idade = parseInt(document.getElementById("idade").value);
-    const andaMotoVal = andaMoto.value;
-
-    const motosSelecionadas = Array.from(
-      document.getElementById("moto").selectedOptions
-    ).map(opt => opt.text);
-
-    let mensagem = `Salve, ${nome}! `;
-
-    if (!isNaN(idade)) {
-      mensagem += idade >= 18
-        ? "Maior de idade, pronto pra acelerar forte! "
-        : "Menor de idade, mas já tem espírito de piloto! ";
-    }
-
-    if (andaMotoVal === "sim") {
-      mensagem += "Boa! Você já anda de moto. ";
-      if (motosSelecionadas.length > 0) {
-        mensagem += `Máquina insana: ${motosSelecionadas.join(", ")} 🏍️🔥`;
-      } else {
-        mensagem += "Depois me conta qual moto você pilota!";
-      }
-    } else {
-      mensagem += "Ainda não anda de moto, mas o BRAP chama 😎";
-    }
-
-    resposta.textContent = mensagem;
+    resposta.textContent = `Salve, ${nome}! O BRAP respondeu 😈🏍️`;
   });
 
   /* ===============================
-     CLIQUE NAS IMAGENS DA GALERIA
+     GALERIA
   =============================== */
   document.querySelectorAll(".grid-galeria img").forEach(img => {
     img.addEventListener("click", () => {
       tocarBrapCRF250R();
-      alert("BRAP! 🏁🔥 Foto insana!");
     });
   });
 
 });
-function tocarBrapCRF250R() {
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const audioCtx = new AudioContext();
-
-  // FORÇA ativação do áudio (ESSENCIAL)
-  if (audioCtx.state === "suspended") {
-    audioCtx.resume();
-  }
-
-  function brap(delay = 0) {
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-
-    osc.type = "sawtooth";
-    osc.frequency.setValueAtTime(150, audioCtx.currentTime + delay);
-    osc.frequency.exponentialRampToValueAtTime(
-      600,
-      audioCtx.currentTime + delay + 0.2
-    );
-
-    gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + delay);
-    gain.gain.exponentialRampToValueAtTime(
-      0.6,
-      audioCtx.currentTime + delay + 0.05
-    );
-    gain.gain.exponentialRampToValueAtTime(
-      0.0001,
-      audioCtx.currentTime + delay + 0.3
-    );
-
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    osc.start(audioCtx.currentTime + delay);
-    osc.stop(audioCtx.currentTime + delay + 0.32);
-  }
-
-  // BRAP BRAP duplo
-  brap(0);
-  brap(0.35);
-}
