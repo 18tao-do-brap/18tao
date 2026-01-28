@@ -1,6 +1,10 @@
 /* ===============================
    RESET / BASE
 =============================== */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -12,14 +16,17 @@ body {
    CABEÇALHO
 =============================== */
 header {
-  background-color: #da0d0d;
+  background: linear-gradient(180deg, #ff0000, #b30000);
   padding: 20px;
   text-align: center;
+  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
 }
 
 header h1 {
   margin: 0;
   font-size: 2.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 /* ===============================
@@ -28,28 +35,31 @@ header h1 {
 nav ul {
   list-style: none;
   padding: 0;
-  margin-top: 10px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 30px;
 }
 
 nav a {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
-}
-
-nav a:hover {
-  text-decoration: underline;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
 }
 
 .link-preto {
-  color: black;
+  color: #000;
 }
 
 .colorful-text {
-  color: yellow;
+  color: #ffe600;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(255,255,255,0.7);
 }
 
 /* ===============================
@@ -63,70 +73,130 @@ nav a:hover {
    INTRO
 =============================== */
 .intro {
-  padding: 40px 20px;
+  padding: 60px 20px 40px;
   text-align: center;
 }
 
+.intro h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
 /* ===============================
-   INTERAÇÃO
+   INTERAÇÃO (FORMULÁRIO INSANO)
 =============================== */
 .interacao {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
 }
 
 .interacao h2 {
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
 }
 
+/* FORM */
 .interacao form {
   width: 450px;
   max-width: 100%;
-  padding: 30px;
-  background: #fff;
-  color: #000;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  padding: 35px;
+  background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
+  border-radius: 20px;
+  border: 2px solid #da0d0d;
+  box-shadow:
+    0 0 20px rgba(218, 13, 13, 0.7),
+    0 0 50px rgba(218, 13, 13, 0.4);
+  position: relative;
 }
 
+/* Linha vermelha topo */
+.interacao form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff0000, #ff6a00);
+  border-radius: 20px 20px 0 0;
+}
+
+/* Labels */
 .interacao label {
   display: block;
-  font-size: 1.1rem;
-  margin-top: 12px;
-}
-
-.interacao input,
-.interacao select,
-.interacao button {
-  display: block;
-  width: 100%;
-  font-size: 1rem;
-  padding: 10px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.interacao button {
-  background-color: #da0d0d;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
   margin-top: 15px;
+  color: #ff4d4d;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+}
+
+/* Inputs */
+.interacao input,
+.interacao select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  background: #0a0a0a;
+  color: #fff;
+  border: 1px solid #444;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Foco */
+.interacao input:focus,
+.interacao select:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
+  transform: scale(1.02);
+}
+
+/* Select múltiplo */
+.interacao select[multiple] {
+  height: auto;
+}
+
+/* Botão */
+.interacao button {
+  margin-top: 25px;
+  padding: 14px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff0000, #b30000);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  transition: all 0.3s ease;
 }
 
 .interacao button:hover {
-  background-color: #b50a0a;
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(255, 0, 0, 1);
 }
 
+/* Resposta */
 #resposta {
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
+  text-shadow: 0 0 10px rgba(255,0,0,0.8);
 }
 
 /* ===============================
@@ -135,29 +205,30 @@ nav a:hover {
 .grid-galeria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  padding: 40px;
+  gap: 30px;
+  padding: 50px 30px;
 }
 
 .grid-galeria img {
   width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 0 20px #ff0000;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+  transition: all 0.4s ease;
   cursor: pointer;
 }
 
 .grid-galeria img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 35px #ff3c3c;
+  transform: scale(1.1) rotate(-1deg);
+  box-shadow: 0 0 45px rgba(255, 60, 60, 1);
 }
 
 /* ===============================
    FOOTER
 =============================== */
 footer {
-  background-color: #da0d0d;
+  background: linear-gradient(180deg, #ff0000, #b30000);
   text-align: center;
-  padding: 15px;
+  padding: 18px;
   margin-top: 40px;
+  font-size: 0.95rem;
 }
