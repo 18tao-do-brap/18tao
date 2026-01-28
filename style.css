@@ -9,25 +9,27 @@ body {
   margin: 0;
   font-family: 'Teko', sans-serif;
   background-color: #121212;
-  color: #f0f0f0;
-}
+  color: #eaeaea;
 }
 
 /* ===============================
-   CABEÇALHO
+   HEADER
 =============================== */
 header {
-  background: linear-gradient(180deg, #ff0000, #b30000);
-  padding: 20px;
+  background: linear-gradient(180deg, #161616, #0f0f0f);
+  padding: 22px 16px 18px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.5);
+  border-bottom: 2px solid #8b0000;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.5em;
-  text-transform: uppercase;
+  font-size: 2.2rem;
+  font-weight: 700;
   letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f2f2f2;
+  text-shadow: 1px 1px 0 #000;
 }
 
 /* ===============================
@@ -36,61 +38,52 @@ header h1 {
 nav ul {
   list-style: none;
   padding: 0;
-  margin-top: 15px;
+  margin: 14px 0 0;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 28px;
 }
 
 nav a {
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-.link-preto {
-  color: #000;
-}
-
-.colorful-text {
-  color: #ffe600;
+  letter-spacing: 1px;
+  color: #bdbdbd;
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
-  transform: scale(1.1);
-  text-shadow: 0 0 10px rgba(255,255,255,0.7);
-}
-
-/* ===============================
-   SEÇÕES
-=============================== */
-.secao {
-  min-height: 60vh;
+  color: #ff2a2a;
 }
 
 /* ===============================
    INTRO
 =============================== */
 .intro {
-  padding: 60px 20px 40px;
+  padding: 70px 20px 60px;
   text-align: center;
+  background: linear-gradient(180deg, #0c0c0c, #121212);
 }
 
 .intro h2 {
   font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #e60000;
+  margin-bottom: 16px;
 }
 
 .intro p {
-  font-size: 1.1rem;
-  opacity: 0.9;
+  font-size: 1.05rem;
+  color: #d0d0d0;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 auto 12px;
 }
 
 /* ===============================
-   INTERAÇÃO (FORMULÁRIO INSANO)
+   INTERAÇÃO / FORMULÁRIO
 =============================== */
 .interacao {
   display: flex;
@@ -100,104 +93,74 @@ nav a:hover {
 }
 
 .interacao h2 {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
-  text-transform: uppercase;
+  font-size: 2rem;
   letter-spacing: 2px;
-  text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+  text-transform: uppercase;
+  color: #e60000;
+  margin-bottom: 22px;
 }
 
-/* FORM */
 .interacao form {
-  width: 450px;
+  width: 420px;
   max-width: 100%;
-  padding: 35px;
-  background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
-  border-radius: 20px;
-  border: 2px solid #da0d0d;
-  box-shadow:
-    0 0 20px rgba(218, 13, 13, 0.7),
-    0 0 50px rgba(218, 13, 13, 0.4);
-  position: relative;
+  padding: 30px;
+  background: #0b0b0b;
+  border-radius: 14px;
+  border: 1px solid #8b0000;
 }
 
-/* Linha vermelha topo */
-.interacao form::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 6px;
-  width: 100%;
-  background: linear-gradient(90deg, #ff0000, #ff6a00);
-  border-radius: 20px 20px 0 0;
-}
-
-/* Labels */
+/* labels */
 .interacao label {
   display: block;
-  margin-top: 15px;
+  margin-top: 14px;
   color: #ff4d4d;
-  font-weight: bold;
-  letter-spacing: 0.6px;
+  font-weight: 600;
 }
 
-/* Inputs */
+/* inputs */
 .interacao input,
 .interacao select {
   width: 100%;
   margin-top: 6px;
   padding: 12px;
-  font-size: 1rem;
-  border-radius: 8px;
-  background: #0a0a0a;
+  background: #000;
   color: #fff;
   border: 1px solid #444;
-  outline: none;
-  transition: all 0.3s ease;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-/* Foco */
 .interacao input:focus,
 .interacao select:focus {
   border-color: #ff0000;
-  box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
-  transform: scale(1.02);
+  outline: none;
 }
 
-/* Select múltiplo */
-.interacao select[multiple] {
-  height: auto;
-}
-
-/* Botão */
+/* botão */
 .interacao button {
-  margin-top: 25px;
+  margin-top: 22px;
+  width: 100%;
   padding: 14px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   text-transform: uppercase;
-  border-radius: 10px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  background: linear-gradient(135deg, #ff0000, #b30000);
+  background: linear-gradient(135deg, #b30000, #ff0000);
   color: #fff;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-  transition: all 0.3s ease;
 }
 
 .interacao button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 35px rgba(255, 0, 0, 1);
+  filter: brightness(1.1);
 }
 
-/* Resposta */
+/* resposta */
 #resposta {
-  margin-top: 25px;
-  font-size: 1.2rem;
+  margin-top: 18px;
   font-weight: bold;
+  color: #ff4d4d;
   text-align: center;
-  text-shadow: 0 0 10px rgba(255,0,0,0.8);
 }
 
 /* ===============================
@@ -205,200 +168,28 @@ nav a:hover {
 =============================== */
 .grid-galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  padding: 50px 30px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  padding: 50px 25px;
 }
 
 .grid-galeria img {
   width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
-  transition: all 0.4s ease;
-  cursor: pointer;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
 }
 
 .grid-galeria img:hover {
-  transform: scale(1.1) rotate(-1deg);
-  box-shadow: 0 0 45px rgba(255, 60, 60, 1);
+  transform: scale(1.05);
 }
 
 /* ===============================
    FOOTER
 =============================== */
 footer {
-  background: linear-gradient(180deg, #ff0000, #b30000);
+  background: #0f0f0f;
   text-align: center;
-  padding: 18px;
-  margin-top: 40px;
-  font-size: 0.95rem;
-}
-/* ===============================
-   FORMULÁRIO MAIS AGRESSIVO 🏍️🔥
-=============================== */
-
-.interacao form {
-  background: #0b0b0b;
-  border: 2px solid #ff0000;
-  border-radius: 16px;
-  padding: 35px;
-  box-shadow: 
-    0 0 25px rgba(255, 0, 0, 0.7),
-    inset 0 0 20px rgba(255, 0, 0, 0.2);
-}
-
-/* título */
-.interacao h2 {
-  color: #ff0000;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-/* labels */
-.interacao label {
-  color: #ff4d4d;
-  font-weight: bold;
-  letter-spacing: 0.5px;
-}
-
-/* inputs e selects */
-.interacao input,
-.interacao select {
-  background: #000;
-  color: #fff;
-  border: 1px solid #555;
-  border-radius: 8px;
-  padding: 12px;
-  transition: 0.3s;
-}
-
-/* foco */
-.interacao input:focus,
-.interacao select:focus {
-  border-color: #ff0000;
-  box-shadow: 0 0 10px #ff0000;
-  outline: none;
-}
-
-/* botão */
-.interacao button {
-  background: linear-gradient(135deg, #ff0000, #8b0000);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 14px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 20px;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-  transition: 0.3s;
-}
-
-.interacao button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px rgba(255, 0, 0, 1);
-}
-
-/* resposta */
-#resposta {
-  color: #ff4d4d;
-  margin-top: 20px;
-  font-weight: bold;
-  text-align: center;
-}/* ===============================
-   SHAKE DE IMPACTO 🏍️🔥
-=============================== */
-
-@keyframes shakeTela {
-  0%   { transform: translateX(0); }
-  20%  { transform: translateX(-8px); }
-  40%  { transform: translateX(8px); }
-  60%  { transform: translateX(-6px); }
-  80%  { transform: translateX(6px); }
-  100% { transform: translateX(0); }
-}
-
-.shake {
-  animation: shakeTela 0.4s;
-}
-/* ===============================
-   NOVO INÍCIO - IDENTIDADE
-=============================== */
-
-.intro {
-  padding: 90px 20px 70px;
-  text-align: center;
-  background: linear-gradient(
-    180deg,
-    #0b0b0b 0%,
-    #121212 100%
-  );
-}
-
-.intro h2 {
-  font-size: 3rem;
-  font-weight: 900;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #ff0000;
-  text-shadow:
-    0 0 15px rgba(255, 0, 0, 0.8),
-    0 0 40px rgba(255, 0, 0, 0.6);
-  margin-bottom: 20px;
-}
-
-.intro .slogan {
-  font-size: 1.3rem;
-  color: #f5f5f5;
-  max-width: 600px;
-  margin: 0 auto 25px;
-  line-height: 1.6;
-}
-
-.intro .assinatura {
-  font-size: 1rem;
-  color: #ff4d4d;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-header {
-  background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
-  padding: 24px 20px 20px;
-  text-align: center;
-  border-bottom: 2px solid #8b0000;
-  box-shadow: none;
-}
-header h1 {
-  font-size: 2.2rem;        /* 🔥 bem menor */
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #f2f2f2;
-  text-shadow: 1px 1px 0 #000;
-}
-nav a {
-  color: #cfcfcf;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-}
-
-nav a:hover {
-  color: #ff2a2a;
-}
-.intro h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #e60000;
-  text-shadow: none;       /* ❌ remove glow */
-  margin-bottom: 15px;
-}
-
-.intro p {
-  font-size: 1.05rem;
-  color: #d0d0d0;
-  line-height: 1.6;
+  padding: 16px;
+  font-size: 0.9rem;
+  border-top: 1px solid #8b0000;
 }
