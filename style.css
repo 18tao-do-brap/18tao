@@ -321,3 +321,43 @@ footer {
 .shake {
   animation: shakeTela 0.4s;
 }
+/* ===============================
+   NOVO INÍCIO - IDENTIDADE
+=============================== */
+
+.intro {
+  padding: 90px 20px 70px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    #0b0b0b 0%,
+    #121212 100%
+  );
+}
+
+.intro h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ff0000;
+  text-shadow:
+    0 0 15px rgba(255, 0, 0, 0.8),
+    0 0 40px rgba(255, 0, 0, 0.6);
+  margin-bottom: 20px;
+}
+
+.intro .slogan {
+  font-size: 1.3rem;
+  color: #f5f5f5;
+  max-width: 600px;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+}
+
+.intro .assinatura {
+  font-size: 1rem;
+  color: #ff4d4d;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
