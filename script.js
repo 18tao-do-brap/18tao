@@ -137,3 +137,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+function tocarBrapCRF250R() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContext();
+
+  // FORÇA ativação do áudio (ESSENCIAL)
+  if (audioCtx.state === "suspended") {
+    audioCtx.resume();
+  }
+
+  function brap(delay = 0) {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(150, audioCtx.currentTime + delay);
+    osc.frequency.exponentialRampToValueAtTime(
+      600,
+      audioCtx.currentTime + delay + 0.2
+    );
+
+    gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + delay);
+    gain.gain.exponentialRampToValueAtTime(
+      0.6,
+      audioCtx.currentTime + delay + 0.05
+    );
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      audioCtx.currentTime + delay + 0.3
+    );
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start(audioCtx.currentTime + delay);
+    osc.stop(audioCtx.currentTime + delay + 0.32);
+  }
+
+  // BRAP BRAP duplo
+  brap(0);
+  brap(0.35);
+}
