@@ -79,3 +79,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+/* ===============================
+   VIBRAÇÃO + SHAKE AO ENVIAR
+=============================== */
+const form = document.getElementById("formInteracao");
+const corpo = document.body;
+
+form.addEventListener("submit", () => {
+
+  /* Vibração no celular */
+  if (navigator.vibrate) {
+    navigator.vibrate([120, 60, 120]); // vibra, pausa, vibra
+  }
+
+  /* Tremida na tela */
+  corpo.classList.add("shake");
+
+  setTimeout(() => {
+    corpo.classList.remove("shake");
+  }, 400);
+});
