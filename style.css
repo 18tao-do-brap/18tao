@@ -209,3 +209,27 @@ footer {
   height: auto;
   filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.4));
 }
+.galeria img {
+  border-radius: 12px;
+  border: 2px solid darkred;
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 
+      0 0 5px darkred,
+      0 0 10px red;
+  }
+  50% {
+    box-shadow: 
+      0 0 20px red,
+      0 0 40px crimson,
+      0 0 60px darkred;
+  }
+  100% {
+    box-shadow: 
+      0 0 5px darkred,
+      0 0 10px red;
+  }
+}
