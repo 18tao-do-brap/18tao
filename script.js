@@ -36,9 +36,66 @@ document.addEventListener("DOMContentLoaded", () => {
       andaMoto.value === "sim" ? "block" : "none";
   });
 
+  /* ===============================
+     SOM CRF 250R — BRAP BRAP
+  =============================== */
+  function tocarBrapCRF250R() {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function brap(delay = 0) {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = "sawtooth";
+      osc.frequency.setValueAtTime(140, audioCtx.currentTime + delay);
+      osc.frequency.exponentialRampToValueAtTime(
+        520,
+        audioCtx.currentTime + delay + 0.18
+      );
+
+      gain.gain.setValueAtTime(0.0001, audioCtx.currentTime + delay);
+      gain.gain.exponentialRampToValueAtTime(
+        0.55,
+        audioCtx.currentTime + delay + 0.04
+      );
+      gain.gain.exponentialRampToValueAtTime(
+        0.0001,
+        audioCtx.currentTime + delay + 0.25
+      );
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(audioCtx.currentTime + delay);
+      osc.stop(audioCtx.currentTime + delay + 0.26);
+    }
+
+    // BRAP BRAP duplo
+    brap(0);
+    brap(0.32);
+  }
+
+  /* ===============================
+     SUBMIT DO FORMULÁRIO
+  =============================== */
   formInteracao.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    // 🔊 Som CRF 250R
+    tocarBrapCRF250R();
+
+    // 📳 Vibração no celular
+    if (navigator.vibrate) {
+      navigator.vibrate([120, 60, 120]);
+    }
+
+    // 📺 Tremida BRAP
+    document.body.classList.add("shake");
+    setTimeout(() => {
+      document.body.classList.remove("shake");
+    }, 400);
+
+    // ===== Mensagem =====
     const nome = document.getElementById("nome").value.trim();
     const idade = parseInt(document.getElementById("idade").value);
     const andaMotoVal = andaMoto.value;
@@ -74,28 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
   =============================== */
   document.querySelectorAll(".grid-galeria img").forEach(img => {
     img.addEventListener("click", () => {
+      tocarBrapCRF250R();
       alert("BRAP! 🏁🔥 Foto insana!");
     });
   });
 
-});
-/* ===============================
-   VIBRAÇÃO + SHAKE AO ENVIAR
-=============================== */
-const form = document.getElementById("formInteracao");
-const corpo = document.body;
-
-form.addEventListener("submit", () => {
-
-  /* Vibração no celular */
-  if (navigator.vibrate) {
-    navigator.vibrate([120, 60, 120]); // vibra, pausa, vibra
-  }
-
-  /* Tremida na tela */
-  corpo.classList.add("shake");
-
-  setTimeout(() => {
-    corpo.classList.remove("shake");
-  }, 400);
 });
