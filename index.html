@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,16 +7,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header>
     <h1>18tão do Braap 🔥</h1>
     <nav>
       <ul>
-        <li><a href="#" class="link-preto">Início</a></li>
-        <li><a href="#" class="link-preto">Galeria</a></li>
+        <li><a href="#" class="link-preto" id="btnInicio">Início</a></li>
+        <li><a href="#" class="link-preto" id="btnGaleria">Galeria</a></li>
         <li>
-          <a href="https://www.youtube.com/@18T%C3%A3o.da_CRF/featured" 
-             target="_blank" 
-             rel="noopener noreferrer" 
+          <a href="https://www.youtube.com/@18T%C3%A3o.da_CRF/featured"
+             target="_blank"
+             rel="noopener noreferrer"
              class="colorful-text">
              Youtube
           </a>
@@ -27,101 +27,70 @@
   </header>
 
   <main>
-    <section class="intro">
-      <h2>Bem-vindo ao mundo do motocross!</h2>
-      <p>Adrenalina, lama e muito Brap! Aqui é o lugar dos apaixonados por trilha, motocross e velocidade.</p>
-      <p>Piloto de motocross oficial da Arena Race!</p>
-    </section>
 
-    <section class="galeria">
-      <h2>Galeria do 18TÃO</h2>
-      <div class="imagens" id="galeriaImagens">
-        <img src="IMG_2744.jpeg" alt="motos" />
-        <img src="IMG_3346.jpeg" alt="arte motocross" />
-        <img src="2BF03B60-91F3-451B-801C-466A6C44DF36.jpeg" alt="moto" />
-      </div>
-      <!-- Formulário de vivências foi removido -->
-    </section>
+    <!-- ================= INÍCIO ================= -->
+    <section id="inicio" class="secao">
 
-    <section class="interacao">
-      <h2>Fala aí, piloto!</h2>
-      <form id="formInteracao">
-        <label for="nome">Qual seu nome?</label>
-        <input type="text" id="nome" required />
+      <section class="intro">
+        <h2>Bem-vindo ao mundo do motocross!</h2>
+        <p>Adrenalina, lama e muito Brap! Aqui é o lugar dos apaixonados por trilha, motocross e velocidade.</p>
+        <p>Piloto de motocross oficial da Arena Race!</p>
+      </section>
 
-        <label for="idade">Quantos anos você tem?</label>
-        <input type="number" id="idade" required min="1" max="120" />
+      <section class="interacao">
+        <h2>Fala aí, piloto!</h2>
 
-        <label for="andaMoto">Você anda de moto?</label>
-        <select id="andaMoto" required>
-          <option value="">Selecione</option>
-          <option value="sim">Sim</option>
-          <option value="nao">Não</option>
-        </select>
+        <form id="formInteracao">
+          <label for="nome">Qual seu nome?</label>
+          <input type="text" id="nome" required />
 
-        <!-- Campo escondido por padrão -->
-        <div id="motoContainer" style="display:none;">
-          <label for="moto">Qual sua moto? (pode escolher várias)</label>
-          <select id="moto" multiple size="8">
-            <option>Honda CRF 250R</option>
-            <option>Honda CRF 450R</option>
-            <option>Honda CRF 150R</option>
-            <option>Honda CRF 230F</option>
-            <option>Honda CRF 250F</option>
-            <option>Honda CRF 450RX</option>
-            <option>Honda CRF 300L</option>
-            <option>Honda XR 250 Tornado</option>
-            <option>Honda XR 400R</option>
-            <option>Honda XR 650R</option>
-            <option>Yamaha YZ125</option>
-            <option>Yamaha YZ250</option>
-            <option>Yamaha YZ450F</option>
-            <option>Yamaha WR250F</option>
-            <option>Yamaha WR450F</option>
-            <option>Yamaha YZ250X</option>
-            <option>Yamaha YZ125X</option>
-            <option>KTM 125 SX</option>
-            <option>KTM 250 SX</option>
-            <option>KTM 450 SX-F</option>
-            <option>KTM 250 EXC</option>
-            <option>KTM 300 EXC</option>
-            <option>KTM 350 EXC-F</option>
-            <option>KTM 450 EXC-F</option>
-            <option>KTM 500 EXC-F</option>
-            <option>Kawasaki KX125</option>
-            <option>Kawasaki KX250</option>
-            <option>Kawasaki KX450</option>
-            <option>Kawasaki KLX250</option>
-            <option>Kawasaki KLX300</option>
-            <option>Kawasaki KLX450R</option>
-            <option>Suzuki RM125</option>
-            <option>Suzuki RM250</option>
-            <option>Suzuki RM-Z250</option>
-            <option>Suzuki RM-Z450</option>
-            <option>Husqvarna TC125</option>
-            <option>Husqvarna TC250</option>
-            <option>Husqvarna FC250</option>
-            <option>Husqvarna FC450</option>
-            <option>Husqvarna TE250</option>
-            <option>Husqvarna TE300</option>
-            <option>Husqvarna FE350</option>
-            <option>Husqvarna FE450</option>
-            <option>GasGas MC125</option>
-            <option>GasGas MC250</option>
-            <option>GasGas MC450F</option>
-            <option>GasGas EC250</option>
-            <option>GasGas EC300</option>
-            <option>Beta RR250</option>
-            <option>Beta RR300</option>
-            <option>Beta RR450</option>
+          <label for="idade">Quantos anos você tem?</label>
+          <input type="number" id="idade" required min="1" max="120" />
+
+          <label for="andaMoto">Você anda de moto?</label>
+          <select id="andaMoto" required>
+            <option value="">Selecione</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
           </select>
-        </div>
 
-        <button type="submit">Enviar</button>
-      </form>
+          <div id="motoContainer" style="display:none;">
+            <label for="moto">Qual sua moto?</label>
+            <select id="moto" multiple size="6">
+              <option>Honda CRF 250R</option>
+              <option>Honda CRF 450R</option>
+              <option>Honda CRF 230F</option>
+              <option>Yamaha YZ250</option>
+              <option>KTM 250 SX</option>
+              <option>Kawasaki KX450</option>
+            </select>
+          </div>
 
-      <div id="resposta"></div>
+          <button type="submit">Enviar</button>
+        </form>
+
+        <div id="resposta"></div>
+      </section>
+
     </section>
+
+    <!-- ================= GALERIA ================= -->
+    <section id="galeria" class="secao" style="display:none;">
+      <h2 style="text-align:center; margin-top:30px;">
+        Galeria do 18TÃO 🏍️🔥
+      </h2>
+
+      <div class="grid-galeria">
+        <!-- IMAGENS DE EXEMPLO (troque depois) -->
+        <img src="moto1.jpg" alt="Motocross 1">
+        <img src="moto2.jpg" alt="Motocross 2">
+        <img src="moto3.jpg" alt="Motocross 3">
+        <img src="moto4.jpg" alt="Motocross 4">
+        <img src="moto5.jpg" alt="Motocross 5">
+        <img src="moto6.jpg" alt="Motocross 6">
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -131,12 +100,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
