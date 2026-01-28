@@ -1,0 +1,8 @@
+   ![18TÃO DO BRAAAP](assets/18tao_braaap.png)
+   
+
+
+   git add assets/18tao_braaap.png
+   git commit -m "Adiciona imagem 18TÃO DO BRAAAP"
+   git push origin main
+   
