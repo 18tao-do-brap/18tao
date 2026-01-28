@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ===============================
-     SOM REAL DE MOTOCROSS – 4 TEMPOS
+     SOM DE BRAP (Super Mario)
   =============================== */
-  const somBrap = new Audio("motocross1");
+  const somBrap = new Audio("supermario_brap.mp3"); // coloque seu som aqui
   somBrap.volume = 1.0;
 
   function tocarBrapCRF250R() {
-    // reinicia o áudio do começo
     somBrap.currentTime = 0;
     somBrap.play();
 
@@ -46,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const formInteracao = document.getElementById("formInteracao");
   const resposta = document.getElementById("resposta");
 
+  // Mostrar seleção de moto se a pessoa anda de moto
   andaMoto.addEventListener("change", () => {
     motoContainer.style.display =
       andaMoto.value === "sim" ? "block" : "none";
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   formInteracao.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // 🔊 Toca o BRAP real
+    // 🔊 Som BRAP
     tocarBrapCRF250R();
 
     // 📳 Vibração no celular
@@ -68,9 +68,35 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("shake");
     }, 400);
 
-    // Mensagem pro usuário
+    // ===== Mensagem personalizada =====
     const nome = document.getElementById("nome").value.trim();
-    resposta.textContent = `Salve, ${nome}! o braap te chama 😈🏍️`;
+    const idade = parseInt(document.getElementById("idade").value);
+    const andaMotoVal = andaMoto.value;
+
+    const motosSelecionadas = Array.from(
+      document.getElementById("moto").selectedOptions
+    ).map(opt => opt.text);
+
+    let mensagem = `Salve, ${nome}! `;
+
+    if (!isNaN(idade)) {
+      mensagem += idade >= 18
+        ? "Maior de idade, pronto pra acelerar forte! "
+        : "Menor de idade, mas já tem espírito de piloto! ";
+    }
+
+    if (andaMotoVal === "sim") {
+      mensagem += "Boa! Você já anda de moto. ";
+      if (motosSelecionadas.length > 0) {
+        mensagem += `Máquina insana: ${motosSelecionadas.join(", ")} 🏍️🔥`;
+      } else {
+        mensagem += "Depois me conta qual moto você pilota!";
+      }
+    } else {
+      mensagem += "Ainda não anda de moto, mas o BRAP chama 😎";
+    }
+
+    resposta.textContent = mensagem;
   });
 
   /* ===============================
@@ -79,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".grid-galeria img").forEach(img => {
     img.addEventListener("click", () => {
       tocarBrapCRF250R();
+      alert("BRAP! 🏁🔥 Foto insana!");
     });
   });
 
